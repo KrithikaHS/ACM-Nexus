@@ -1,0 +1,117 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<title>ACM</title>
+<link rel="stylesheet" href="{% static 'MainApp/info.css'%}" />
+
+{% endblock head %} {% block body %}
+<div class="inner-container">
+  <div class="event-header ">
+  <div class="event-title animate__animated animate__bounceInDown">ACM Nexus 2.0</div>
+  <div class="event-subtitle animate__animated animate__backInLeft">Unite Through Innovation</div>
+</div>
+<div class="content">
+    <div class="overview inner-content">
+        <h3>Overview</h3>
+        <ul class="points">
+            <li><strong>Theme:</strong><br> Innovation across multiple domains</li>
+            <li><strong>Objective:</strong><br> Encourage creative solutions to diverse problem statements within the given themes.</li>
+            <li><strong>Time:</strong><br> January 5th, 2024, from 1:00 PM to January 6th, 2024, 5:00 PM</li>
+            <li><strong>Team size:</strong><br> 4 members per team</li>
+        </ul>
+    </div>
+    <div class="event-timeline inner-content">
+        <h3>Event Timeline</h3>
+        <ul class="points">
+            <li><strong>January 5th, 2024:</strong></li> <ul><li>1:00 PM: Event starts.</li><li>3:00 PM: Round 1 of evaluation</li><li>o	8:00 PM: Round 2 of evaluation</li></ul>
+            <li><strong>January 6th, 2024:</strong></li><ul><li>o	11:00 AM: Round 3 of evaluation</li><li>o	1:00 PM: Event ends, project submissions close.</li><li>o	1:30 PM - 3:30 PM: Project presentations and judging.</li><li>o	4:00 PM: Winners announced, closing ceremony.</li></ul>
+        </ul>
+    </div>
+    <div class="General-rules inner-content">
+        <h3>General Rules</h3>
+        <ul class="points">
+            <li><strong>Team Formation:</strong></li> <ul><li>Teams must consist of exactly 4 members</li></ul>
+            <li><strong>Eligibility:</strong></li><ul><li>Open to all participants interested in problem-solving and innovation</li><li>Participants must abide by the event's Code of Conduct.</li></ul>
+            <li><strong>Project Development:</strong></li> <ul><li>Projects should align with at least one of the provided problem statements</li><li>Use of open-source libraries and APIs is permitted</li></ul>
+        </ul>
+    </div>
+    <div class="submission inner-content">
+        <h3>Submission</h3>
+        <ul class="points">
+            <li>Each team must submit their project by the specified deadline</li>
+            <li>Submissions should include a presentation (slides or video) and a brief documentation describing the project.</li>
+        </ul>
+    </div>
+    <div class="judging-ceiteria inner-content">
+        <h3>Judging Criteria</h3>
+        <ul class="points">
+            <li>Projects will be evaluated based on innovation, technical complexity, relevance to the problem statement, and presentation quality.</li>
+        </ul>
+    </div>
+    <div class="code-of-conduct inner-content">
+        <h3>Code of Conduct</h3>
+        <ul class="points">
+            <li>Respectful and ethical behaviour is expected from all participants</li>
+            <li>Plagiarism or using someone else's work without attribution is strictly prohibited</li>
+        </ul>
+    </div>
+    <div class="Disclaimer inner-content">
+        <h3>Disclaimer</h3>
+        <div>ACM KLS GIT reserves the right to modify the event rules and guidelines if deemed necessary. Any changes will be communicated to the participants promptly</div>
+    </div>
+</div>
+<div class="page-background"></div>
+
+    <div class="calendar-container">
+        <!-- March 19 Item -->
+        <div class="calendar-item">
+            <div class="date-box">
+                <div class="month">March</div>
+                <div class="day">19</div>
+            </div>
+            <div class="content-box">
+                <div class="title">Lorem Ipsum</div>
+                <div class="description">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquip.
+                </div>
+            </div>
+        </div>
+        
+        <!-- April 18 Item -->
+        <div class="calendar-item april">
+            <div class="date-box">
+                <div class="month">April</div>
+                <div class="day">18</div>
+            </div>
+            <div class="content-box">
+                <div class="title">Dolor Sit Amet</div>
+                <div class="description">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquip.
+                </div>
+            </div>
+        </div>
+        
+        <!-- November 14 Item -->
+        <div class="calendar-item november">
+            <div class="date-box">
+                <div class="month">November</div>
+                <div class="day">14</div>
+            </div>
+            <div class="content-box">
+                <div class="title">Consectetur</div>
+                <div class="description">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquip.
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container2">
+  <img src="{% static 'Images/roadmap.png' %}" alt="" />
+  <div class="text"></div>
+</div>
+  {% endblock body %}
+
