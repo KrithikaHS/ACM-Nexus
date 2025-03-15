@@ -10,7 +10,7 @@ ACM Nexus is a 24-hour coding competition organized by the ACM Students Chapter 
 - **Responsive Design:** The site is optimized for various devices.
 
 ## Installation
-1. **Clone the repository:** `git clone https://github.com/9147/ACM_Nexus.git`
+1. **Clone the repository:** `git clone https://github.com/Shubham1905s/ACM-Nexus.git`
 2. **Install dependencies:** `pip install django`
 3. **Start the server:** `python manage.py runserver`
 
@@ -20,10 +20,8 @@ ACM Nexus is a 24-hour coding competition organized by the ACM Students Chapter 
 - HTML/CSS/JS
 - JQuery
 
-## Contributors
-- Manoj Patil
 
 ## License
-This project is licensed under MIT License. See the [LICENSE]([link-to-license-file](https://github.com/9147/ACM_Nexus/blob/main/LICENSE)https://github.com/9147/ACM_Nexus/blob/main/LICENSE) file for details.
+This project is licensed under MIT License. See the [LICENSE]([link-to-license-file](https://github.com/Shubham1905s/ACM-Nexus/blob/main/LICENSE)https://github.com/Shubham1905s/ACM-Nexus/blob/main/LICENSE) file for details.
 
 
