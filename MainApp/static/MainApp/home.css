@@ -1,6 +1,4 @@
-/* ================================= */
-/* HERO SECTION */
-/* ================================= */
+
 .hero-section {
     background-size: cover;
     background-position: center;
@@ -11,7 +9,7 @@
     justify-content: center;
 }
 
-/* Inner Container */
+
 .inner-container {
     display: flex;
     flex-direction: column;
@@ -20,7 +18,7 @@
     max-width: 1000px;
 }
 
-/* Event Header */
+
 .event-header {
     width: 100%;
     padding: 2rem;
@@ -56,9 +54,7 @@
     background-color: rgb(230, 147, 187);
 }
 
-/* ================================= */
-/* REGISTRATION OPEN TEXT */
-/* ================================= */
+
 .registration-open {
     font-family: cursive;
     color: rgb(14, 12, 12);
@@ -79,7 +75,7 @@
     animation: loopText 3s infinite ease-in-out;
 }
 
-/* Animation for Looping Effect */
+
 @keyframes loopText {
     0% {
         transform: translateY(-100%);
@@ -99,9 +95,7 @@
     }
 }
 
-/* ================================= */
-/* ACM DESCRIPTION SECTION */
-/* ================================= */
+
 .acm-description {
     font-style: italic;
     font-size: 1.5rem;
@@ -121,7 +115,7 @@
     position: relative;
 }
 
-/* Dark Overlay */
+
 .acm-description::before {
     content: '';
     position: absolute;
@@ -134,14 +128,14 @@
     z-index: 0;
 }
 
-/* Ensure Content is Above Overlay */
+
 .acm-description h2,
 .acm-description p {
     position: relative;
     z-index: 1;
 }
 
-/* Title Styling */
+
 .acm-description h2 {
     font-size: 2rem;
     font-weight: 700;
@@ -149,7 +143,7 @@
     margin-bottom: 1rem;
 }
 
-/* Paragraph Styling */
+
 .acm-description p {
     font-size: 1.5rem;
     font-weight: 400;
@@ -158,9 +152,7 @@
     margin-bottom: 1rem;
 }
 
-/* ================================= */
-/* REGISTRATION SECTION */
-/* ================================= */
+
 .registration-section {
     /* background-image: url('/static/Images/ss3.png');  */
     background-size: cover;
@@ -176,7 +168,7 @@
     box-sizing: border-box;
 }
 
-/* Registration Content */
+
 .registration-content {
     max-width: 600px;
     z-index: 1;
@@ -204,7 +196,7 @@
     margin-bottom: 2rem;
 }
 
-/* Button Styling */
+
 .register-button {
     display: inline-block;
     padding: 0.8rem 2rem;
@@ -224,7 +216,7 @@
     transform: scale(1.1);
 }
 
-/* Side Images Styling */
+
 .side-images {
     display: flex;
     gap: 1rem;
@@ -247,11 +239,9 @@
     margin-top: -50px;
 }
 
-/* ================================= */
-/* RESPONSIVE DESIGN */
-/* ================================= */
+
 @media (max-width: 768px) {
-    /* Event Title Adjustments */
+   
     .event-title {
         font-size: 2.5rem;
     }
@@ -264,7 +254,7 @@
         width: 30px;
     }
 
-    /* Registration Section Adjustments */
+  
     .registration-section {
         flex-direction: column;
         padding: 2rem;

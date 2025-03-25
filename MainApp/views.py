@@ -1,15 +1,18 @@
 from django.http import JsonResponse
-from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect
 from django.contrib.auth import authenticate, login,logout
 from .models import *
 import random
 from django.core.mail import send_mail
+from django.contrib import messages
 from ACM_Registration_Portal.settings import EMAIL_HOST_USER
 import random
 import string
 from django.conf import settings
 import os
 import csv
+
+
 
 def generate_random_password(length):
     characters = string.ascii_letters + string.digits
@@ -77,7 +80,31 @@ def register(request):
     return HttpResponse(status=404)
 
 def about(request):
+    
+
+
+    if request.method == "POST":
+        first_name = request.POST.get("first-name")
+        last_name = request.POST.get("last-name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+
+        subject = f"Contact Form Submission from {first_name} {last_name}"
+        body = f"Name: {first_name} {last_name}\nEmail: {email}\n\nMessage:\n{message}"
+
+        recipient_email = "22u1428@students.git.edu"  # Target email
+
+        try:
+            send_mail(subject, body, email, [recipient_email])
+            messages.success(request, "Your message has been sent successfully!")
+        except Exception as e:
+            messages.error(request, f"Failed to send message: {str(e)}")
+
+        return redirect("/about/")  # Redirect to the contact page
+
     return render(request,'MainApp/about.html')
+
+
 
 def account(request):
     return render(request,'MainApp/account.html')

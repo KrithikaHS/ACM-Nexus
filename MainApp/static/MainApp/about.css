@@ -3,15 +3,13 @@ body {
   margin: 0;
   padding: 0;
   background-color: #1f1f1f;
-  /* background-image: url('/static/Images/ss2.png'); */
   color: #fff;
 }
-/* Header Section */
 .header {
-  background-image: url('/static/Images/ss2.png');
+  /* background-image: url('/static/Images/ss2.png'); */
   background-size: cover;
-  /* background-position: center; */
-  width: 100vw; /* Full width */
+
+  width: 100vw;
   height: 100vh; 
   display: flex;
   align-items: center;
@@ -21,7 +19,7 @@ body {
   padding: 5rem;
 }
 .header h1 {
-  font-size: 4rem; /* Bigger for visibility */
+  font-size: 4rem;
   margin: 0;
   background: rgba(4, 0, 21, 0.5); 
   padding: 10px 20px;
@@ -29,31 +27,29 @@ body {
 }
 .header p {
   font-size: 1.5rem;
-  /* background: rgba(0, 0, 0, 0.5); */
   padding: 5px 15px;
   border-radius: 5px;
 }
 @media (max-width: 768px) {
   .header {
-    height: 60vh; /* Adjust height for smaller screens */
+    height: 60vh; 
   }
   .header h1 {
-    font-size: 2.5rem; /* Smaller text on mobile */
+    font-size: 2.5rem; 
   }
   .header p {
     font-size: 1rem;
   }
 }
-/* Content Section */
+
 .content {
   padding: 50px;
-  /* background-color: #333; */
   display: flex;
   align-items: flex-start;
   gap: 30px;
   position: relative;
 }
-/* Adjust Side Text "INCEPTION" */
+
 .side-text {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
@@ -61,9 +57,9 @@ body {
   font-weight: bold;
   letter-spacing: 5px;
   color: #fff;
-  margin-left: 50px; /* Move INCEPTION slightly to the right */
+  margin-left: 50px; 
 }
-/* Info Section */
+
 .info-section {
   flex: 1;
   margin-left: 20px;
@@ -84,8 +80,6 @@ body {
   }
 }
 .info-section h2 {
-  /* writing-mode: -rl; */
-  /* transform: rotate(180deg); */
   font-size: 3rem;
   font-weight: bold;
   letter-spacing: 5px;
@@ -97,7 +91,6 @@ body {
   line-height: 1.6;
   color: #ccc;
 }
-/* Image Placeholder */
 .image-placeholder {
   width: 100px;
   height: 100px;
@@ -114,7 +107,6 @@ body {
   object-fit: cover;
 }
 
-/* Swiper Section Styles */
 .swiper-section {
   padding: 20px;
   background-color: #b63c3c;
@@ -151,9 +143,8 @@ swiper-slide img {
 }
 
 
-/* Contact Us Section */
+
 #contact-US {
-  /* background-color: #000; */
   padding: 80px 5%; 
   color: #fff;
   display: flex;
@@ -169,7 +160,6 @@ swiper-slide img {
   width: 100%;
 }
 
-/* Contact Info */
 .contact-info {
   flex: 1;
 }
@@ -198,8 +188,6 @@ swiper-slide img {
   color: #aaa;
   border-bottom: 1px solid #aaa;
 }
-
-/* Contact Form */
 .contact-form {
   flex: 1;
 }
@@ -245,7 +233,7 @@ textarea:focus {
   border-color: #aaa;
 }
 
-/* Send Button */
+
 .send-btn {
   background-color: #fff;
   color: #000;

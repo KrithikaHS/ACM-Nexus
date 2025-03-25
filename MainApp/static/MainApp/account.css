@@ -6,14 +6,11 @@ body {
 #content {
     padding: 1rem 0 0 0;
     display: flex;
-    /* position: absolute; */
+  
     right: 12.5vw;
     width: 80vw;
     border: solid 1px white;
-    /* background: transparent; */
-    /* backdrop-filter: blur(20px); */
     border-radius: 1.2rem;
-    /* padding: 2rem; */
     min-height: 60vh;
     flex-direction: column;
     border-bottom: none;
@@ -96,7 +93,7 @@ body {
     width: 100%;
     flex-grow: 2;
     align-items: flex-end;
-    /* justify-content: space-around; */
+
 }
 .button-container {
     width: 100%;
@@ -140,7 +137,3 @@ hr {
     margin: -0.5rem auto 1rem auto;
     width: 80%;
 }
-/* .block.active {
-    opacity: 1;
-    display: flex;
-} */
