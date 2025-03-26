@@ -80,9 +80,6 @@ def register(request):
     return HttpResponse(status=404)
 
 def about(request):
-    
-
-
     if request.method == "POST":
         first_name = request.POST.get("first-name")
         last_name = request.POST.get("last-name")
@@ -92,7 +89,7 @@ def about(request):
         subject = f"Contact Form Submission from {first_name} {last_name}"
         body = f"Name: {first_name} {last_name}\nEmail: {email}\n\nMessage:\n{message}"
 
-        recipient_email = "22u1428@students.git.edu"  # Target email
+        recipient_email = "22u1428@students.git.edu"  
 
         try:
             send_mail(subject, body, email, [recipient_email])
@@ -100,7 +97,7 @@ def about(request):
         except Exception as e:
             messages.error(request, f"Failed to send message: {str(e)}")
 
-        return redirect("/about/")  # Redirect to the contact page
+        return redirect("/about/")  
 
     return render(request,'MainApp/about.html')
 
