@@ -22,10 +22,11 @@
         <h2>Team Details</h2>
         <p id="{{team.id}}">Team Name: {{team.team_name}}</p>
         <p>Problem Number: {{team.problem_no}}</p>
-        <p>Team Leader: {{team.team_leader}}</p>
-            <p>Member 1: {{team.team_member1}}</p>
-            <p>Member 2: {{team.team_member2}}</p>
-            <p>Member 3: {{team.team_member3}}</p>
+        <p>Team Leader: {{ team.team_leader }}</p>
+        <p>Member 1: {{ team.team_member1 }}</p>
+        {% if team.team_member2 %}<p>Member 2: {{ team.team_member2 }}</p>{% endif %}
+        {% if team.team_member3 %}<p>Member 3: {{ team.team_member3 }}</p>{% endif %}
+        
             <h2><a href="https://chat.whatsapp.com/KFiQi16k6wo17NQzP8wyqf">Click here</a> to join the whatsapp group!!</h2>
             <div id="gforms">
                 <h2><a href="https://docs.google.com/forms/d/1EWLWwd5YaVQWotR6imo6-SVS1BEn9m_i2JHZOh2oHZk/edit">Click here</a> and Fill Your Team Details!!</h2>

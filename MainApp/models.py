@@ -21,11 +21,14 @@ class CustomUser(AbstractUser):
 
 
 class Team(models.Model):
-    team_name=models.CharField(max_length=100,primary_key=True)
-    team_leader=models.ForeignKey(CustomUser,on_delete=models.CASCADE)
-    team_member1=models.ForeignKey(CustomUser,on_delete=models.CASCADE,related_name='team_member1',null=True,blank=True)
-    team_member2=models.ForeignKey(CustomUser,on_delete=models.CASCADE,related_name='team_member2',null=True,blank=True)
-    team_member3=models.ForeignKey(CustomUser,on_delete=models.CASCADE,related_name='team_member3',null=True,blank=True)
-    problem_no=models.IntegerField(default=1,validators=[MaxValueValidator(25), MinValueValidator(1)])
+    team_name = models.CharField(max_length=100, primary_key=True)
+    team_leader = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    team_member1 = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='team_member1', null=True, blank=True)
+    team_member2 = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='team_member2', null=True, blank=True)
+    team_member3 = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='team_member3', null=True, blank=True)
+    problem_no = models.IntegerField(default=1, validators=[MaxValueValidator(25), MinValueValidator(1)])
+
     def __str__(self):
         return self.team_name
+
+

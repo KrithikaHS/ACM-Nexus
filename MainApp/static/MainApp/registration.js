@@ -6,11 +6,23 @@ function validateForm() {
     var email4 = document.getElementById("email4").value;
     var problem = document.getElementById("problem").value;
 
-    if (email1 == email2 || email1 == email3 || email1 == email4 || email2 == email3 || email2 == email4 || email3 == email4) {
-        alert("Duplicate Email's found!! Team Creation Failed");
+    // Ensure at least 2 members
+    if (!email2) {
+        alert("At least 2 members are required!");
         return false;
-    } else if (problem < 1 || problem > 25) {
-        alert("Invalid Problem Number!! Team Creation Failed");
+    }
+
+    // Check for duplicate emails
+    let emails = [email1, email2, email3, email4].filter(email => email !== "");
+    let uniqueEmails = new Set(emails);
+    if (emails.length !== uniqueEmails.size) {
+        alert("Duplicate emails found! Team Creation Failed");
+        return false;
+    }
+
+    // Ensure problem number is valid
+    if (problem < 1 || problem > 25) {
+        alert("Invalid Problem Number! Team Creation Failed");
         return false;
     }
 
@@ -24,22 +36,20 @@ function validateForm() {
             'name': name,
             'email1': email1,
             'email2': email2,
-            'email3': email3,
-            'email4': email4,
+            'email3': email3 || null,
+            'email4': email4 || null,
             'problem': problem,
         },
         dataType: 'json',
         success: function (data) {
             console.log(data);
-            // Submit the form programmatically after successful AJAX call
             document.getElementById("form").submit();
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(errorThrown);
             alert(errorThrown + "!! Team Creation Failed");
-            // Handle error, no form submission
         }
     });
 
-    return false; // Prevent default form submission
+    return false;
 }

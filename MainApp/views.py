@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect,get_object_or_404
 from django.contrib.auth import authenticate, login,logout
 from .models import *
 import random
@@ -161,67 +161,104 @@ def createteam(request):
     return HttpResponse(status=404)
 
 def checkteam(request):
-    if request.method=='POST':
-        team_name=request.POST['name']
-        team_leader=request.POST['email1']
+    if request.method == 'POST':
+        team_name = request.POST['name']
+        team_leader = request.POST['email1']
         team_member1 = request.POST['email2']
-        team_member2 = request.POST['email3']
-        team_member3 = request.POST['email4']
-        problem_number=request.POST.get('problem')
-        print(team_name,team_member1,team_member2,team_member3)
-        print(CustomUser.objects.filter(email=team_member1))
+        team_member2 = request.POST.get('email3')  # Optional
+        team_member3 = request.POST.get('email4')  # Optional
+        problem_number = request.POST.get('problem')
+
+        # Validate the team name
         if Team.objects.filter(team_name=team_name).exists():
-            return HttpResponse(status=404,reason='Team Name already exists\n Try with different name')
-        elif problem_number not in [str(i) for i in range(1,26)]:
-            return HttpResponse(status=404,reason='Problem Number is not valid')
-        elif not CustomUser.objects.filter(email=team_member1).exists():
-            return HttpResponse(status=404,reason='Team Member 2 doesn\'t exists')
-        elif not CustomUser.objects.filter(email=team_member2).exists():
-            return HttpResponse(status=404,reason='Team Member 3 doesn\'t exists')
-        elif not CustomUser.objects.filter(email=team_member3).exists():
-            return HttpResponse(status=404,reason='Team Member 4 doesn\'t exists')
-        elif Team.objects.filter(team_member1=CustomUser.objects.get(email=team_member1)).exists():
-            return HttpResponse(status=404,reason='Team Member 2 already has team')
-        elif Team.objects.filter(team_member2=CustomUser.objects.get(email=team_member2)).exists():
-            return HttpResponse(status=404,reason='Team Member 3 already has team')
-        elif Team.objects.filter(team_member3=CustomUser.objects.get(email=team_member3)).exists():
-            return HttpResponse(status=404,reason='Team Member 4 already has team')
+            return HttpResponse(status=404, reason='Team Name already exists\nTry with a different name')
+
+        # Validate problem number
+        if problem_number not in [str(i) for i in range(1, 26)]:
+            return HttpResponse(status=404, reason='Problem Number is not valid')
+
+        # Validate required members
+        if not CustomUser.objects.filter(email=team_member1).exists():
+            return HttpResponse(status=404, reason='Team Member 2 does not exist')
+
+        if team_member2 and not CustomUser.objects.filter(email=team_member2).exists():
+            return HttpResponse(status=404, reason='Team Member 3 does not exist')
+
+        if team_member3 and not CustomUser.objects.filter(email=team_member3).exists():
+            return HttpResponse(status=404, reason='Team Member 4 does not exist')
+
+        # Ensure team members are not already in a team
+        if Team.objects.filter(team_member1=CustomUser.objects.get(email=team_member1)).exists():
+            return HttpResponse(status=404, reason='Team Member 2 already has a team')
+
+        if team_member2 and Team.objects.filter(team_member2=CustomUser.objects.get(email=team_member2)).exists():
+            return HttpResponse(status=404, reason='Team Member 3 already has a team')
+
+        if team_member3 and Team.objects.filter(team_member3=CustomUser.objects.get(email=team_member3)).exists():
+            return HttpResponse(status=404, reason='Team Member 4 already has a team')
+
+        # Create the team
+        leader = CustomUser.objects.get(email=team_leader)
+        member1 = CustomUser.objects.get(email=team_member1)
+        leader.is_registered = True
+        member1.is_registered = True
+
+        if team_member2:
+            member2 = CustomUser.objects.get(email=team_member2)
+            member2.is_registered = True
         else:
-            u1 = CustomUser.objects.get(email=team_leader)
-            u1.is_registered = True
-            u2 = CustomUser.objects.get(email=team_member1)
-            u2.is_registered = True
-            u3 = CustomUser.objects.get(email=team_member2)
-            u3.is_registered = True
-            u4 = CustomUser.objects.get(email=team_member3)
-            u4.is_registered = True
-            val = Team(team_name=team_name, team_leader=u1, team_member1=u2, team_member2=u3, team_member3=u4,
-                       problem_no=problem_number)
-            val.save()
-            u1.save()
-            u2.save()
-            u3.save()
-            u4.save()
-            return JsonResponse({'data':'success'})
+            member2 = None
+
+        if team_member3:
+            member3 = CustomUser.objects.get(email=team_member3)
+            member3.is_registered = True
+        else:
+            member3 = None
+
+        val = Team(
+            team_name=team_name,
+            team_leader=leader,
+            team_member1=member1,
+            team_member2=member2,
+            team_member3=member3,
+            problem_no=problem_number
+        )
+        val.save()
+        leader.save()
+        member1.save()
+        if member2:
+            member2.save()
+        if member3:
+            member3.save()
+
+        return JsonResponse({'data': 'success'})
+
     return HttpResponse(status=404)
 
-def deleteteam(request,team_name):
-    if request.method=='POST':
-        team=Team.objects.get(team_name=team_name)
-        u1 = team.team_leader
-        u2 = team.team_member1
-        u3 = team.team_member2
-        u4 = team.team_member3
-        u1.is_registered=False
-        u2.is_registered=False
-        u3.is_registered=False
-        u4.is_registered=False
-        u1.save()
-        u2.save()
-        u3.save()
-        u4.save()
+
+def deleteteam(request, team_name):
+    if request.method == 'POST':
+        team = get_object_or_404(Team, team_name=team_name)  # Safer than get()
+        
+        if team.team_leader:
+            team.team_leader.is_registered = False
+            team.team_leader.save()
+        
+        if team.team_member1:
+            team.team_member1.is_registered = False
+            team.team_member1.save()
+        
+        if team.team_member2:
+            team.team_member2.is_registered = False
+            team.team_member2.save()
+        
+        if team.team_member3:
+            team.team_member3.is_registered = False
+            team.team_member3.save()
+
         team.delete()
         return HttpResponseRedirect('/account')
+
     return HttpResponse(status=404)
 
 
