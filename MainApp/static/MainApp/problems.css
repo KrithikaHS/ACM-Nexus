@@ -11,7 +11,10 @@
   max-width: 1240px;
   width: 100%;
   border-radius: 10px;
-  background-color: #00000066;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index:10;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +22,7 @@
 }
 .title-about {
     font-family: 'Rubik Lines',Roboto;
-    color: white;
+    color: rgb(211, 241, 246);
     font-size: 3rem;
     /* font-weight: 600; */
     margin-bottom: 1rem;
@@ -43,12 +46,15 @@
   max-width: 400px;
   border-radius: 10px;
   padding: 2rem;
-  background-color: #00000066;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   margin-bottom: 30px;
+  z-index: 10;
 }
   
 .heading {
-    color: turquoise;
+    color: rgb(121, 221, 211);
     padding-bottom:2rem;
   }
   
@@ -92,4 +98,24 @@
       scale: 1.6;
     }
   }
- 
+
+  /* updated css */
+  .card-content li {
+    list-style-type: "◆ ";  
+  }
+  body {
+    /* margin: 0; */
+    /* overflow: hidden; */
+    background: #0a0a0f; 
+}
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    /* height: 100%; */
+}
+
+
+  
