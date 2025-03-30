@@ -65,7 +65,7 @@ body {
     flex-flow: column;
     min-block-size: 100vh;
     font-family: system-ui;
-    background: linear-gradient(180deg, #581845, #900C3F, #C70039, #FF5733, #FFC300);
+    background: #0a0a0f; 
 }
 
 .container {
@@ -222,7 +222,7 @@ body {
 .footer{
     position: fixed;
     margin:0rem, 1rem, 0rem, 1rem;
-    background-color: #fff;
+    background-color: #ffffff;
     width:100%;
     display: flex;
     bottom:0px;
@@ -301,3 +301,11 @@ body {
     }
 }
 
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -5;
+    /* height: 100%; */
+}
