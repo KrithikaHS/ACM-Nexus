@@ -11,7 +11,7 @@ body{
   align-items: center;
   justify-content: center;
   z-index: -1;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(1px);
 }
 .conatiner-inner{
   z-index: 0;
@@ -214,3 +214,4 @@ body{
     display: none;
   }
 }
+
