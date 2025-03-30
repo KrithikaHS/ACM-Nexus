@@ -13,7 +13,6 @@ import os
 import csv
 
 
-
 def generate_random_password(length):
     characters = string.ascii_letters + string.digits
     return ''.join(random.choice(characters) for _ in range(length))
@@ -238,7 +237,7 @@ def checkteam(request):
 
 def deleteteam(request, team_name):
     if request.method == 'POST':
-        team = get_object_or_404(Team, team_name=team_name)  # Safer than get()
+        team = get_object_or_404(Team, team_name=team_name) 
         
         if team.team_leader:
             team.team_leader.is_registered = False
@@ -272,7 +271,7 @@ def problems(request):
     theme = {}
     no = 1
     count = 1
-    val = "Sustainability and Environment"
+    val = "IOT"
 
     for a in data_list:
         if val == a[1]:
